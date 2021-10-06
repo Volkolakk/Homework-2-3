@@ -23,3 +23,4 @@
 2--2<br>
 1--2<br>
 }</p>
+<p>Построение графа производим на сайте https://dreampuf.github.io/GraphvizOnline</p>

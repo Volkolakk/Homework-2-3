@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 
-struct route //структура пути
+struct route //СЃС‚СЂСѓРєС‚СѓСЂР° РїСѓС‚Рё
 {
     char name_route;
     char top1;
@@ -30,7 +30,7 @@ int main(void*)
     route* routs, * tmp;
     routs = (struct route*)malloc(sizeof(route) * 8);
 
-    file = fopen("C:\\Users\\Георгий\\Desktop\\table.txt", "r");
+    file = fopen("C:\\Users\\Р“РµРѕСЂРіРёР№\\Desktop\\table.txt", "r");
 
     fgetc(file);
 
@@ -69,7 +69,7 @@ int main(void*)
     }
     fclose(file);
 
-    write_file = fopen("C:\\Users\\Георгий\\Desktop\\tablewr.txt", "w");
+    write_file = fopen("C:\\Users\\Р“РµРѕСЂРіРёР№\\Desktop\\tablewr.txt", "w");
 
     fprintf(write_file, "graph H{\n");
     for (;i > 0;i--) {
@@ -90,12 +90,12 @@ int main(void*)
         seeOnrouts(routs[0].top1, collumnMax, routs, markTop, 2);
     }
 
-    if (checkConnect(collumnMax, routs, markTop))// печатаем результат
+    if (checkConnect(collumnMax, routs, markTop))// РїРµС‡Р°С‚Р°РµРј СЂРµР·СѓР»СЊС‚Р°С‚
         printf("graph is connect");
     else
         printf("graph does not connect");
 }
-int checkConnect(int collumnMax, struct route* routs, char* markTop) { // проверяем есть ли маршрут от первой точи ко всем остальным
+int checkConnect(int collumnMax, struct route* routs, char* markTop) { // РїСЂРѕРІРµСЂСЏРµРј РµСЃС‚СЊ Р»Рё РјР°СЂС€СЂСѓС‚ РѕС‚ РїРµСЂРІРѕР№ С‚РѕС‡Рё РєРѕ РІСЃРµРј РѕСЃС‚Р°Р»СЊРЅС‹Рј
     int i = 0;
     for (;i < (collumnMax);i++) {
         if (!search(routs[i].top1, markTop))
@@ -105,7 +105,7 @@ int checkConnect(int collumnMax, struct route* routs, char* markTop) { // провер
     }
     return 1;
 }
-int search(char nowTop, char* markTop) { //смотрим есть ли в массиве вершина
+int search(char nowTop, char* markTop) { //СЃРјРѕС‚СЂРёРј РµСЃС‚СЊ Р»Рё РІ РјР°СЃСЃРёРІРµ РІРµСЂС€РёРЅР°
     int i = 0;
     while (markTop[i] != '\0') {
         if (markTop[i] == nowTop)
@@ -116,7 +116,7 @@ int search(char nowTop, char* markTop) { //смотрим есть ли в массиве вершина
         return 1;
     return 0;
 }
-void seeOnrouts(char nowTop, int collumnMax, struct route* routs, char* markTop, int topNumber) {//смотрим на соседние верршины и записываем их в массив если их там нет
+void seeOnrouts(char nowTop, int collumnMax, struct route* routs, char* markTop, int topNumber) {//СЃРјРѕС‚СЂРёРј РЅР° СЃРѕСЃРµРґРЅРёРµ РІРµСЂСЂС€РёРЅС‹ Рё Р·Р°РїРёСЃС‹РІР°РµРј РёС… РІ РјР°СЃСЃРёРІ РµСЃР»Рё РёС… С‚Р°Рј РЅРµС‚
     int i = 0;
     char* tmp;
     while (i < collumnMax) {
